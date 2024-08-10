@@ -101,7 +101,7 @@ def send_scheduled_message():
 
 # 啟動定時任務
 scheduler = BackgroundScheduler()
-scheduler.add_job(send_scheduled_message, 'interval', hours=1)  # 每10秒發送一次
+scheduler.add_job(send_scheduled_message, 'cron', day_of_week='fri', hour=20, minute=0)  # 每周五20:00执行一次
 scheduler.start()
 
 if __name__ == "__main__":
